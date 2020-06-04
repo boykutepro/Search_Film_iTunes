@@ -23,12 +23,17 @@ class iTuneObject {
 class Itune: Codable {
     var filmName: String?
     var imageURL: String?
-    var previewURL: String?
+    var artistName: String?
+    var trackPrice: Float?
+    var country: String?
+    var previewUrl: String?
     
     required init(json: JSON) {
         filmName = json["trackName"].stringValue
         imageURL = json["artworkUrl100"].stringValue
-        previewURL = json["previewURL"].stringValue
-        
+        artistName = json["artistName"].stringValue
+        trackPrice = json["trackPrice"].floatValue
+        country = json["country"].stringValue
+        previewUrl = json["previewUrl"].stringValue
     }
 }

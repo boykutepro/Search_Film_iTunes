@@ -14,7 +14,10 @@ class CustomCell: UICollectionViewCell {
     let containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor.lightGray
+        view.backgroundColor = UIColor.black
+        view.layer.shadowColor = UIColor.white.cgColor
+        view.layer.shadowOffset = .zero
+        view.layer.shadowOpacity = 0.7
         return view
     }()
     
@@ -39,9 +42,7 @@ class CustomCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = ""
         label.numberOfLines = 2
-        label.textColor = .red
-        label.backgroundColor = .lightGray
-//        label.backgroundColor = .green
+        label.textColor = .white
         return label
     }()
     
@@ -74,24 +75,22 @@ class CustomCell: UICollectionViewCell {
         photoImageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 0).isActive = true
         photoImageView.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 0).isActive = true
         photoImageView.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: 0).isActive = true
-        photoImageView.heightAnchor.constraint(equalTo: containerView.heightAnchor, constant: -30).isActive = true
+        photoImageView.heightAnchor.constraint(equalTo: containerView.heightAnchor, constant: -45).isActive = true
         
         containerView.addSubview(labelView)
         labelView.topAnchor.constraint(equalTo: photoImageView.bottomAnchor, constant: 0).isActive = true
         labelView.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 0).isActive = true
         labelView.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: 0).isActive = true
-        labelView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 0).isActive = true
+        let bottomAnchor = labelView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 0)
+        bottomAnchor.priority = UILayoutPriority(rawValue: 250)
+        bottomAnchor.isActive = true
         
         labelView.addSubview(titleLabel)
         titleLabel.topAnchor.constraint(equalTo: labelView.topAnchor, constant: 0).isActive = true
         titleLabel.leftAnchor.constraint(equalTo: labelView.leftAnchor, constant: 0).isActive = true
         titleLabel.rightAnchor.constraint(equalTo: labelView.rightAnchor, constant: 0).isActive = true
-        let bottomAnchor = titleLabel.bottomAnchor.constraint(equalTo: labelView.bottomAnchor, constant: 8)
-        bottomAnchor.priority = UILayoutPriority(rawValue: 250)
-        bottomAnchor.isActive = true
-        let heightConstraint = titleLabel.heightAnchor.constraint(lessThanOrEqualToConstant: 200)
-        heightConstraint.isActive = true
-        
+        titleLabel.bottomAnchor.constraint(equalTo: labelView.bottomAnchor, constant: 0).isActive = true
+         
 
     }
     

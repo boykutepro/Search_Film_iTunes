@@ -10,8 +10,8 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class ViewController: UIViewController, UISearchBarDelegate {
-
+class ViewController: UIViewController {
+    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -20,11 +20,17 @@ class ViewController: UIViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        view.backgroundColor = .black
+        setupSearchBar()
+        setupColectionView()
+    }
+    
+    func setupSearchBar() {
         searchBar.delegate = self
-        
-        getAPI("harry")
-        
-//        collectionView.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    func setupColectionView() {
+        collectionView.backgroundColor = .black
         collectionView.register(CustomCell.self, forCellWithReuseIdentifier: "cell")
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -48,26 +54,20 @@ class ViewController: UIViewController, UISearchBarDelegate {
             }
             
             switch response.result {
-                case .success(let value):
-                    let data = iTuneObject(json: JSON(value))
-                    if let results = data.results {
-                        strongSelf.datas = results
-                        strongSelf.collectionView.reloadData()
-                      //  print(strongSelf.datas[0].filmName ?? "")
-                    }
-            
-                case .failure(let error):
-                    print(error.localizedDescription)
+            case .success(let value):
+                let data = iTuneObject(json: JSON(value))
+                if let results = data.results {
+                    strongSelf.datas = results
+                    strongSelf.collectionView.reloadData()
+                    //  print(strongSelf.datas[0].filmName ?? "")
+                }
+                
+            case .failure(let error):
+                print(error.localizedDescription)
             }
         }
     }
     
-    // phần này lát tách ra thành extension nhé
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        print("\(searchText), \(datas.count)")
-//        getAPI(searchText)
-//        collectionView.reloadData()
-    }
 }
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -95,5 +95,18 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
         return 0
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let detailVC = DetailsViewController()
+        detailVC.data = datas[indexPath.row]
+        detailVC.modalPresentationStyle = .fullScreen
+        present(detailVC, animated: true, completion: nil)
+    }
+}
+
+extension ViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print("\(searchText), \(datas.count)")
+        getAPI(searchText)
+        collectionView.reloadData()
+    }
 }

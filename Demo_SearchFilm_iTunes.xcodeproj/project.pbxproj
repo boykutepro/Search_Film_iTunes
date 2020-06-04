@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1E09983CF598AA462FE3719D /* Pods_Demo_SearchFilm_iTunes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EF23335B09A0079933B3AF5 /* Pods_Demo_SearchFilm_iTunes.framework */; };
+		4C5D7F23248655A700D15FD7 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5D7F22248655A700D15FD7 /* DetailsViewController.swift */; };
 		4C6340BB247BE894006321DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6340BA247BE894006321DD /* AppDelegate.swift */; };
 		4C6340BD247BE894006321DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6340BC247BE894006321DD /* SceneDelegate.swift */; };
 		4C6340BF247BE894006321DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6340BE247BE894006321DD /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		0EF23335B09A0079933B3AF5 /* Pods_Demo_SearchFilm_iTunes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Demo_SearchFilm_iTunes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CB7274B5D28D6F63FBEA5E9 /* Pods-Demo_SearchFilm_iTunes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo_SearchFilm_iTunes.debug.xcconfig"; path = "Target Support Files/Pods-Demo_SearchFilm_iTunes/Pods-Demo_SearchFilm_iTunes.debug.xcconfig"; sourceTree = "<group>"; };
+		4C5D7F22248655A700D15FD7 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		4C6340B7247BE894006321DD /* Demo_SearchFilm_iTunes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo_SearchFilm_iTunes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C6340BA247BE894006321DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C6340BC247BE894006321DD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				4C6340BA247BE894006321DD /* AppDelegate.swift */,
 				4C6340BC247BE894006321DD /* SceneDelegate.swift */,
 				4C6340BE247BE894006321DD /* ViewController.swift */,
+				4C5D7F22248655A700D15FD7 /* DetailsViewController.swift */,
 				4CB9B2F1247D2B07002CB531 /* CustomCell.swift */,
 				4C6340C0247BE894006321DD /* Main.storyboard */,
 				4C6340C3247BE89B006321DD /* Assets.xcassets */,
@@ -225,6 +228,7 @@
 				4C6340BD247BE894006321DD /* SceneDelegate.swift in Sources */,
 				4C6340D0247BEA15006321DD /* Modal.swift in Sources */,
 				4CB9B2F2247D2B07002CB531 /* CustomCell.swift in Sources */,
+				4C5D7F23248655A700D15FD7 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
